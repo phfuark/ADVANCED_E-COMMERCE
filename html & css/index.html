@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Co</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="./imagens/alfa.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav">
+                <img src="https://www.usealphaco.com.br/_nuxt/img/logo.f5346a2.svg" class="logo" alt="Logo">
+                <div class="nav-items">
+                    <div class="search">
+                        <input type="text" class="search-box" placeholder="buscar produto">
+                        <button class="search-btn">buscar</button>
+                    </div>
+                    <a href="#"><img src="imagens/perfil.png" alt="Perfil"></a>
+                    <a href="#"><img src="imagens/carinho.png" alt="Carrinho"></a>
+                </div>
+            </div>
+        </nav>
+        <ul class="links-container">
+            <li class="link-item"><a href="#" class="link">início</a></li>
+            <li class="link-item"><a href="#" class="link">feminino</a></li>
+            <li class="link-item"><a href="#" class="link">masculino</a></li>
+            <li class="link-item"><a href="#" class="link">infantil</a></li>
+            <li class="link-item"><a href="#" class="link">acessórios</a></li>
+        </ul>
+        <div class="banner">
+            <div class="conteudo-banner">
+                <p id="nao-perca">NÃO PERCA</p>
+                <h2>SUA PROMOÇÃO ESPECIAL!</h2>
+                <p>Tudo isso foi especialmente feito para você</p>
+                <button>Compre Agora!</button>
+            </div>
+            <div class="img-banner">
+                <img src="imagens/Design sem nome(2).png" alt="">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Matriz de Produtos -->
+    <section>
+        <h2>Produtos</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Produtos serão carregados aqui -->
+        </div>
+    </section>
+
+    </div>
+    <h2 class="categoryh2">Categorias Populares</h2>
+    <div class="categories">
+        <div class="category">
+            <img src="https://www.usealphaco.com.br/upload/produto/imagem/m_top-al-a-mescla-azul-claro-seamless.webp" alt="Feminino">
+            <h3>Feminino</h3>
+            <p>Confira nossa seleção de roupas femininas com descontos imperdíveis.</p>
+            <button>Explorar</button>
+        </div>
+        <div class="category">
+            <img src="https://www.usealphaco.com.br/upload/banner/e3030ea44d1eb1c43caa6a549da6f40d.webp" alt="Masculino"> 
+            <h3>Masculino</h3>
+            <p>Roupas masculinas com o estilo e conforto que você merece.</p>
+            <button>Explorar</button>
+        </div>
+        <div class="category">
+            <img src="https://www.usealphaco.com.br/upload/banner/4a7814a2cf357dfa149268b868921cf0.jpg" alt="Acessórios">
+            <h3>Acessórios</h3>
+            <p>Os melhores acessórios perfeitos para complementar seu look.</p>
+            <button>Explorar</button>
+        </div>
+    </div>
+
+     <!-- Matriz de Produtos -->
+     <section>
+        <h2>Produtos</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Produtos serão carregados aqui -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="redes-sociais weContainer">
+            <div class="redes-sociais-logo">
+                <a href="#"><img src="https://www.usealphaco.com.br/_nuxt/img/lobo.f729c13.png" alt="Lobo Alpha.co" width="221" height="90" loading="lazy"></a>
+            </div>
+        </div>
+        <hr class="div-footer">
+        <div class="footer-content">
+            <div>
+                <h4>Sobre Nós</h4>
+                <p>Somos uma empresa comprometida em oferecer os melhores produtos com foco na satisfação do cliente.</p>
+            </div>
+            <div class="payments">
+                <h4>Métodos de Pagamento</h4>
+                <img src="https://cdn.icon-icons.com/icons2/2845/PNG/512/visa_logo_icon_181351.png" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/MasterCard_early_1990s_logo.svg" alt="MasterCard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo%E2%80%94pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg/1200px-Logo%E2%80%94pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg.png" alt="Pix">
+            </div>
+        </div>
+
+        <div class="back-to-top">
+            <a href="#">
+                <button>Voltar ao Topo</button>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Incluindo o arquivo de dados -->
+    <script src="database.js"></script>
+
+    <script>
+        // Função para gerar os produtos
+        function renderProducts() {
+            const productGrid = document.getElementById('productGrid');
+
+            // Verifica se a variável 'database' foi carregada corretamente
+            if (!window.database) {
+                console.error("A variável 'database' não foi carregada corretamente.");
+                return;
+            }
+
+            // Itera sobre o banco de dados de produtos e renderiza os produtos visíveis
+            window.database.forEach(product => {
+                if (product.exibirHome) {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    productDiv.innerHTML = `
+                        <img src="${product.imagemProduto.img1}" alt="${product.tituloProduto}">
+                        <div class="name">${product.tituloProduto}</div>
+                        <div class="qnt">5 uni.</div>
+                        <br>
+                        <div class="descricao">${product.descricao}</div>
+                        <br><br> 
+                        <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
+                        <button>Compre Agora!</button>
+                    `;
+                    productGrid.appendChild(productDiv);
+                }
+            });
+        }
+
+        // Chama a função para renderizar os produtos ao carregar a página
+        window.addEventListener('load', renderProducts);
+    </script>
+</body>
+</html>
