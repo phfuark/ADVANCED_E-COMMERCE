@@ -84,7 +84,7 @@
     border: solid 0.0625rem #000000;
     background-color: rgb(245, 245, 245);
     color: #000000;
-    transition: 1.5s;
+    transition: 0.75s;
 }
 
 .nav-items a {
@@ -263,7 +263,16 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1.6875rem auto 1.75rem auto;
+}
+
+.redes-sociais img{
+    width: 18.75rem;
+    height: 2.5rem;
+}
+
+.redes-sociais-ext img{
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 footer {
