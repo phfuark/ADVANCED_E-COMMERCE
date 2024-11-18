@@ -1,70 +1,53 @@
+// Aguarda o carregamento completo da página
 window.addEventListener("load", () => {
-    // Função para renderizar os produtos
-    function renderProducts() {
-        const productGrid = document.getElementById("productGrid");
-        const productGrid2 = document.getElementById("productGrid2");
+    /**
+     * Função para renderizar produtos em um container específico
+     * @param {string} containerId - ID do container onde os produtos serão renderizados
+     * @param {function} filterCallback - Filtro para selecionar os produtos a serem renderizados
+     */
+    function renderProducts(containerId, filterCallback) {
+        const container = document.getElementById(containerId);
 
-        // Verifica se a base de dados foi carregada
-        if (!window.database) {
-            console.error("Erro: O database.js não foi carregado.");
+        if (!container) {
+            console.error(`Erro: Elemento com ID '${containerId}' não encontrado.`);
             return;
         }
 
-        // Renderiza produtos normais
+        if (!window.database || !Array.isArray(window.database)) {
+            console.error("Erro: O database.js não foi carregado corretamente ou não contém um array.");
+            return;
+        }
+
+        // Limpa o container antes de renderizar
+        container.innerHTML = "";
+
+        // Itera sobre os produtos e aplica o filtro
         window.database.forEach(product => {
-            if (product.exibirHome) {
+            if (filterCallback(product)) {
                 const productDiv = document.createElement("div");
                 productDiv.classList.add("product");
 
-                // Adiciona conteúdo HTML do produto
+                // Conteúdo do produto
                 productDiv.innerHTML = `
                     <img src="${product.imagemProduto.img1}" alt="${product.tituloProduto}">
                     <div class="name">${product.tituloProduto}</div>
-                    <div class="qnt">5 uni.</div>
+                    <div class="qnt">${product.qnt} uni.</div>
                     <br>
                     <div class="descricao">${product.descricao}</div>
-                    <br><br> 
+                    <br><br>
                     <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
                     <button>Compre Agora!</button>
                 `;
 
-                // Adiciona ao grid de produtos
-                if (productGrid) {
-                    productGrid.appendChild(productDiv);
-                } else {
-                    console.error("Erro: Elemento com ID 'productGrid' não encontrado.");
-                }
-            }
-        });
-
-        // Renderiza produtos em destaque
-        window.database.forEach(product => {
-            if (product.categoriaProduto === "Destaque") {
-                const productDiv = document.createElement("div");
-                productDiv.classList.add("product");
-
-                // Adiciona conteúdo HTML do produto em destaque
-                productDiv.innerHTML = `
-                    <img src="${product.imagemProduto.img1}" alt="${product.tituloProduto}">
-                    <div class="name">${product.tituloProduto}</div>
-                    <div class="qnt">5 uni.</div>
-                    <br>
-                    <div class="descricao">${product.descricao}</div>
-                    <br><br> 
-                    <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
-                    <button>Compre Agora!</button>
-                `;
-
-                // Adiciona ao grid de produtos em destaque
-                if (productGrid2) {
-                    productGrid2.appendChild(productDiv);
-                } else {
-                    console.error("Erro: Elemento com ID 'productGrid2' não encontrado.");
-                }
+                // Adiciona o produto ao container
+                container.appendChild(productDiv);
             }
         });
     }
 
-    // Chama a função para renderizar os produtos
-    renderProducts();
+    // Renderiza produtos normais (exibe produtos com 'exibirHome' como true)
+    renderProducts("productGrid", product => product.exibirHome);
+
+    // Renderiza produtos em destaque (categoria 'Destaque')
+    renderProducts("productGrid2", product => product.categoriaProduto === "Destaque");
 });

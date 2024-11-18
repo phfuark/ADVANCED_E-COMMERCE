@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="./scripts/database.js" defer></script>
     <script src="./scripts/main.js" defer></script>
+    
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -21,20 +22,20 @@
                 <img src="./imagens/logo_alpha-.png" class="logo" alt="Logo">
                 <div class="nav-items">
                     <div class="search">
-                        <input type="text" class="search-box" placeholder="buscar produto">
-                        <button class="search-btn">buscar</button>
+                        <input type="text" class="search-box" placeholder="Buscar produto">
+                        <button class="search-btn">Buscar</button>
                     </div>
-                    <a href="#"><img src="imagens/perfil.png" alt="Perfil"></a>
-                    <a href="#"><img src="imagens/carinho.png" alt="Carrinho"></a>
+                    <a href="#"><img src="./imagens/perfil.png" alt="Perfil"></a>
+                    <a href="#"><img src="./imagens/carinho.png" alt="Carrinho"></a>
                 </div>
             </div>
         </nav>
         <ul class="links-container">
-            <li class="link-item"><a href="#" class="link">início</a></li>
-            <li class="link-item"><a href="#" class="link">feminino</a></li>
-            <li class="link-item"><a href="#" class="link">masculino</a></li>
-            <li class="link-item"><a href="#" class="link">infantil</a></li>
-            <li class="link-item"><a href="#" class="link">acessórios</a></li>
+            <li class="link-item"><a href="#" class="link">Início</a></li>
+            <li class="link-item"><a href="#" class="link">Feminino</a></li>
+            <li class="link-item"><a href="#" class="link">Masculino</a></li>
+            <li class="link-item"><a href="#" class="link">Infantil</a></li>
+            <li class="link-item"><a href="#" class="link">Acessórios</a></li>
         </ul>
         <div class="banner">
             <div class="conteudo-banner">
@@ -44,18 +45,15 @@
                 <button>Compre Agora!</button>
             </div>
             <div class="img-banner">
-                <img src="imagens/Design sem nome(2).png" alt="">
+                <img src="imagens/Design sem nome(2).png" alt="Promoção Especial">
             </div>
         </div>
     </header>
 
-
-
     <main>
         <section class="section-product-grid">
-            <div id="product-container" class="product-grid">
-                <!-- Os produtos serão carregados dinamicamente -->
-            </div>
+            <div id="productGrid" class="product-grid"></div>
+            <div id="productGrid2" class="product-grid2"></div>
         </section>
     </main>
 
@@ -82,7 +80,7 @@
             </div>
         </div>
         <div class="back-to-top">
-            <a href="#"><button>Voltar ao Topo</button></a>
+            <a href="#top"><button>Voltar ao Topo</button></a>
         </div>
     </footer>
 </body>

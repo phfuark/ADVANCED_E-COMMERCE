@@ -1,5 +1,6 @@
+// Base de dados de produtos
 window.database = [
-    // PRODUTOS HOMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    // Produtos exibidos na home
     {
         qnt: "3 | 2",
         codigoProduto: 1,
@@ -16,7 +17,6 @@ window.database = [
         classificacaoProduto: "Novidades",
         exibirHome: true
     },
-    
     {
         qnt: 5,
         codigoProduto: 2,
@@ -82,9 +82,9 @@ window.database = [
         exibirHome: true
     },
 
-    //PRODUTOS "PRODUCTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS"
+    // Produtos exibidos na página 'products'
     {
-        codigoProduto: 1,
+        codigoProduto: 6,
         tituloProduto: "Peças Dry Fit",
         preco: 193.03,
         descricao: "As Peças Dry Fit com material leve e respirável, absorvendo o suor de maneira eficiente.",
@@ -92,9 +92,10 @@ window.database = [
             img1: "./imagens/product1.png"
         },
         categoriaProduto: "Masculinos",
+        exibirHome: false
     },
     {
-        codigoProduto: 2,
+        codigoProduto: 7,
         tituloProduto: "Peças Dry Fit",
         preco: 120.00,
         descricao: "As Peças Dry Fit com material leve e respirável, absorvendo o suor de maneira eficiente.",
@@ -102,6 +103,6 @@ window.database = [
             img1: "./imagens/product2.png"
         },
         categoriaProduto: "Masculino",
-    },
+        exibirHome: false
+    }
 ];
-window.database = database;  // Tornando 'database' globalmente acessível
