@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Cabeçalho do site -->
+    </header>
+
+    <main>
+        <section class="product-details">
+            <div class="product-image">
+                <img id="product-img" src="" alt="Imagem do Produto">
+            </div>
+            <div class="product-info">
+                <h1 id="product-name"></h1>
+                <p id="product-description"></p>
+                <p id="product-price"></p>
+                <p id="product-stock"></p>
+                <button id="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Rodapé do site -->
+    </footer>
+
+    <script src="./scripts/database.js"></script>  <!-- Este arquivo contém o banco de dados de produtos -->
+    <script src="./scripts/main.js"></script>      <!-- Este arquivo mantém suas funcionalidades gerais -->
+    <script src="./scripts/product.js"></script>   <!-- Este arquivo vai injetar os dados do produto -->
+</body>
+</html>

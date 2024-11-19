@@ -242,6 +242,11 @@ section {
 /* ------------------------------ 
     Grid de Produtos 
    ------------------------------ */
+
+main h2{
+    padding-left: 15rem
+}
+
 .product-grid {
     display: flex;
     justify-content: space-between;
@@ -273,9 +278,6 @@ section {
     width: 13rem;
 }
 
-.product .stars {
-    color: gold;
-}
 
 .product .price {
     font-size: 1.1rem;
@@ -427,12 +429,14 @@ footer {
    ------------------------------ */
 .payments {
     flex-direction: column;
-}
-
-.payments-icons{
-    display: flex;
     justify-content: flex-end;
 }
+
+.payments-icon{
+    display: flex;
+    justify-content: right;
+}
+
 
 /* ------------------------------ 
     Estilos para o Botão "Voltar ao Topo" 

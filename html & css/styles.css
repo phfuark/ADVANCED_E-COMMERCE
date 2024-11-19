@@ -130,8 +130,8 @@
     color: white;
     display: flex;
     flex-direction: row;
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 11.95rem;
+    padding-right: 11.95rem;
     justify-content: space-between;
 }
 
@@ -206,11 +206,6 @@ section {
     height: 12.5rem;
 }
 
-.product img:hover {
-    width: 13rem;
-    height: 13rem;
-    transition: 0.5s;
-}
 
 .product .name {
     font-size: 1.6rem;
@@ -226,9 +221,6 @@ section {
     width: 13rem;
 }
 
-.product .stars {
-    color: gold;
-}
 
 .product .price {
     font-size: 1.1rem;
@@ -270,13 +262,16 @@ section {
     height: 2.5rem;
 }
 
-.redes-sociais-ext img{
-    width: 2.5rem;
-    height: 2.5rem;
+.redes-sociais-ext a i {
+    font-size: 30px; /* Ajuste o tamanho conforme necessário */
+    color: #000;    /* Defina a cor desejada */
+    margin: 0 10px; /* Espaçamento entre os ícones */
 }
+
 
 footer {
     margin-inline: 11.95rem;
+    margin-top: 2.5rem;
 }
 
 .div-footer {
@@ -345,9 +340,15 @@ footer {
     Estilos de Pagamento 
    ------------------------------ */
 .payments {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
 }
+
+.payments-icon{
+    display: flex;
+    justify-content: right;
+}
+
 
 /* ------------------------------ 
     Conteúdo do Rodapé 
@@ -370,14 +371,6 @@ footer {
 }
 
 /* ------------------------------ 
-    Imagens dos Métodos de Pagamento 
-   ------------------------------ */
-.payments img {
-    width: 3.125rem;
-    margin-right: 0.625rem;
-}
-
-/* ------------------------------ 
     Estilos para o Botão "Voltar ao Topo" 
    ------------------------------ */
 .back-to-top {
@@ -386,10 +379,6 @@ footer {
     padding-bottom: 0.3125rem;
 }
 
-.back-to-top a {
-    color: #fff;
-    text-decoration: none;
-}
 
 .back-to-top button {
     padding: 0.625rem 1.25rem;
@@ -408,3 +397,52 @@ footer {
     background-color: #ffffff;
     color: #000000;
 }
+
+
+.carousel-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    flex: 1; /* O carrossel ocupa o espaço restante */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel-track .product {
+    margin: 10px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.carousel-button {
+    background-color:#555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.carousel-button:hover {
+    background-color: #000000;
+    transition: 0.6s;
+}
+
+.carousel-button.prev {
+    margin-right: 10px; 
+}
+
+.carousel-button.next {
+    margin-left: 10px; 
+}
+

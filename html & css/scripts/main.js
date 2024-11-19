@@ -36,12 +36,23 @@ window.addEventListener("load", () => {
                     <div class="descricao">${product.descricao}</div>
                     <br><br>
                     <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
-                    <button>Compre Agora!</button>
+                    <a href="product.html?id=1"><button class="view-product" data-id="${product.idProduto}">Compre Agora!</button></a>
                 `;
 
                 // Adiciona o produto ao container
                 container.appendChild(productDiv);
             }
+        });
+
+        // Adiciona o evento de clique nos botões "Compre Agora!"
+        const buttons = document.querySelectorAll(".view-product");
+        buttons.forEach(button => {
+            button.addEventListener("click", event => {
+                const productId = event.target.dataset.id;
+                if (productId) {
+                    window.location.href = `product.html?id=${productId}`;
+                }
+            });
         });
     }
 
