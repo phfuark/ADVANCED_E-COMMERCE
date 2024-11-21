@@ -1,23 +1,16 @@
-// Obtém o ID do produto da URL
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');  // Exemplo: "product.html?id=1"
+// Captura o ID do produto da URL
+const params = new URLSearchParams(window.location.search);
+const productId = params.get("id");
 
-// Encontra o produto no database.js
-const product = products.find(item => item.id == productId);
+// Busca o produto no banco de dados
+const product = window.database.find(p => p.idProduto == productId);
 
-// Preenche os elementos da página com as informações do produto
 if (product) {
-    document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-img').src = product.image;
-    document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-price').textContent = `Preço: R$ ${product.price.toFixed(2)}`;
-    document.getElementById('product-stock').textContent = `Estoque: ${product.stock} unidades`;
+    // Exibe os dados do produto
+    document.querySelector(".product-name").innerText = product.tituloProduto;
+    document.querySelector(".product-description").innerText = product.descricao;
+    document.querySelector(".product-price").innerText = `R$ ${product.preco.toFixed(2)} (NO PIX)`;
+    document.querySelector(".product-image").src = product.imagemProduto.img1;
 } else {
-    // Caso o produto não seja encontrado, exibe uma mensagem
-    document.querySelector('.product-details').innerHTML = "<p>Produto não encontrado.</p>";
+    console.error("Produto não encontrado!");
 }
-
-// Lógica do botão "Adicionar ao Carrinho"
-document.getElementById('add-to-cart').addEventListener('click', function() {
-    alert(`Produto ${product.name} adicionado ao carrinho!`);
-});

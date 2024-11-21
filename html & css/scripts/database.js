@@ -161,8 +161,6 @@ window.database = [
         classificacaoProduto: "Novidades",
         exibirHome: true
     },
-];
-const products = [
     {
         id: 1,
         name: "Peças Dry Fit",
@@ -170,5 +168,5 @@ const products = [
         price: 193.03,
         stock: 25,
         image: "./imagens/product1.png"
-    },
+    },  
 ];
