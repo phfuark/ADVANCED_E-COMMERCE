@@ -7,8 +7,8 @@ const product = products.find(item => item.id == productId);
 
 // Preenche os elementos da página com as informações do produto
 if (product) {
-    document.getElementById('product-img').src = product.image;
     document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-img').src = product.image;
     document.getElementById('product-description').textContent = product.description;
     document.getElementById('product-price').textContent = `Preço: R$ ${product.price.toFixed(2)}`;
     document.getElementById('product-stock').textContent = `Estoque: ${product.stock} unidades`;

@@ -124,15 +124,17 @@
     Estilos do Banner 
    ------------------------------ */
 .banner {
-    width: 100%;
-    height: 23.125rem;
+    width: 120rem;
     background-color: #000000;
+    
+}
+
+.banner-again{
     color: white;
     display: flex;
     flex-direction: row;
-    padding-left: 11.95rem;
-    padding-right: 11.95rem;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-inline: 11.95rem;
 }
 
 .banner button:hover {
@@ -146,7 +148,10 @@
     padding-top: 1.875rem;
     padding-bottom: 1.875rem;
     line-height: 4.0625rem;
-    margin: 0;
+}
+
+.conteudo-banner button{
+    line-height: auto;
 }
 
 .conteudo-banner h2 {
@@ -174,8 +179,8 @@
     Estilos da Imagem do Banner 
    ------------------------------ */
 .img-banner img {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: 23.125rem;
 }
 
 /* ------------------------------ 
@@ -186,6 +191,7 @@ section {
     padding-right: 15rem;
     padding-top: 1rem;
 }
+
 
 /* ------------------------------ 
     Grid de Produtos 
@@ -420,8 +426,6 @@ footer {
 
 .carousel-track .product {
     margin: 10px;
-    text-align: center;
-    flex-shrink: 0;
 }
 
 .carousel-button {
@@ -445,4 +449,3 @@ footer {
 .carousel-button.next {
     margin-left: 10px; 
 }
-

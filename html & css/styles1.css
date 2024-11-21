@@ -243,7 +243,7 @@ section {
     Grid de Produtos 
    ------------------------------ */
 
-main h2{
+.title-products{
     padding-left: 15rem
 }
 
@@ -475,7 +475,81 @@ footer {
     padding-left: 15rem;
 }
 
+
+.product-title{
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: solid 0.0625rem #818181;
+    border-bottom: solid 0.0625rem #818181;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+}
+
 #productGrid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+}
+
+.product-card{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-inline: 0.5rem;
+    border-bottom: solid 0.0625rem #818181;
+}
+
+#product-img{
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+}   
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    font-size: 1.3rem;
+    line-height: 3rem;
+}
+
+.product-info button{
+    width: 100%;
+    height: 20rem;
+    margin-top: 1rem;
+    padding: 0.625rem 1.25rem;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.product-info button:hover{
+    border: solid 0.0625rem #383838;
+    background-color: rgb(245, 245, 245);
+    color: #383838;
+    transition: 0.5s;
+}
+
+#product-name{
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+
+
+#product-price{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#product-stock{
+    font-size: 0.8rem;
 }
