@@ -1,0 +1,29 @@
+/* ------------------------------ 
+    Reset de Estilos Globais 
+   ------------------------------ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+#product-img{
+
+}
+
+#product-name{
+    font-size: 1.2rem;
+}
+
+#product-description{
+
+}
+
+#product-price{
+
+}
+
+#product-stock{
+
+}

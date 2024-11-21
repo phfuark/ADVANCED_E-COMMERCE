@@ -22,6 +22,8 @@ window.addEventListener("load", () => {
         container.innerHTML = "";
 
         // Itera sobre os produtos e aplica o filtro
+
+        //HOMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
         window.database.forEach(product => {
             if (filterCallback(product)) {
                 const productDiv = document.createElement("div");

@@ -161,37 +161,14 @@ window.database = [
         classificacaoProduto: "Novidades",
         exibirHome: true
     },
-
-    // Produtos exibidos na página 'product'
-    {
-        qnt: 10,
-        id: 10,
-        tituloProduto: "Jaqueta Corta-Vento",
-        preco: 250.00,
-        descricao: "Jaqueta corta-vento para todos os climas.",
-        imagemProduto: {
-            img1: "./imagens/product3.png"
-        },
-        categoriaProduto: "Unissex",
-        exibirHome: false // Disponível apenas em products.html
-    }
 ];
 const products = [
     {
         id: 1,
-        name: "Produto Exemplo",
-        description: "Descrição do produto",
-        price: 99.99,
+        name: "Peças Dry Fit",
+        description: "As Peças Dry Fit com material leve e respirável, absorvendo o suor de maneira eficiente.",
+        price: 193.03,
         stock: 25,
-        image: "img/produto1.jpg"
+        image: "./imagens/product1.png"
     },
-    {
-        id: 2,
-        name: "Outro Produto",
-        description: "Outra descrição do produto",
-        price: 49.99,
-        stock: 30,
-        image: "img/produto2.jpg"
-    }
-    // Adicione outros produtos conforme necessário
 ];
