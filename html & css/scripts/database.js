@@ -161,6 +161,9 @@ window.database = [
         classificacaoProduto: "Novidades",
         exibirHome: true
     },
+];
+
+window.cart = [
     {
         id: 1,
         name: "Peças Dry Fit",
@@ -168,5 +171,5 @@ window.database = [
         price: 193.03,
         stock: 25,
         image: "./imagens/product1.png"
-    },  
+    }  
 ];

@@ -385,8 +385,14 @@ section {
    ------------------------------ */
 
 footer {
-    margin-inline: 11.95rem;
     margin-top: 2rem;
+}
+
+.fixarRodape {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    padding: 1rem 10vw;
 }
 
 .div-footer {

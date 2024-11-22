@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
                     <div class="descricao">${product.descricao}</div>
                     <br><br>
                     <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
-                    <a href="product.html?id=1"><button class="view-product" data-id="${product.idProduto}">Compre Agora!</button></a>
+                    <a href="product.html?id=${product.id}"><button class="view-product" data-id="${product.id}">Compre Agora!</button></a>
                 `;
 
                 // Adiciona o produto ao container
