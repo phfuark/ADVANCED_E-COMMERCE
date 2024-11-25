@@ -18,12 +18,26 @@ if (product) {
     console.log(product);
     // Adiciona o conteúdo do produto
     productDiv.innerHTML = `
-        <img src="${product.imagemProduto.img1}" alt="${product.tituloProduto}">
-        <div class="name">${product.tituloProduto}</div>
-        <div class="qnt">${product.qnt} uni.</div>
-        <div class="descricao">${product.descricao}</div>
-        <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
-        <button class="view-product" data-id="${product.idProduto}">Compre Agora!</button>
+        <div class="product-page">
+            <div class="product-img">
+                <img src="${product.imagemProduto.img1}" alt="${product.tituloProduto}">
+            </div>
+            <div class="product-text">
+                <div>
+                    <div class="name">${product.tituloProduto}</div>
+                    <div class="qnt">${product.qnt} uni.</div>
+                </div>
+                <div>
+                    <div class="descricao">${product.descricao}</div>
+                </div>
+                
+                <div>
+                    <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
+                    <a href="carrinho.html">
+                        <button class="view-product">Compre Agora!</button>
+                    </a>
+                </div>
+        </div>
     `;
 
     const container = document.getElementById("product-container")
