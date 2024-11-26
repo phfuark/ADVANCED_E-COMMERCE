@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Co - Carrinho</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <script src="./scripts/cart.js" defer></script> <!-- Lógica do carrinho -->
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav">
+                <a href="./index.html">
+                    <img src="./imagens/logo_alpha-.png" class="logo" alt="Logo">
+                </a>
+                <div class="nav-items">
+                    <div class="search">
+                        <input type="text" class="search-box" placeholder="Buscar produto">
+                        <button class="search-btn">Buscar</button>
+                    </div>
+                    <a href="#"><img src="./imagens/perfil.png" alt="Perfil"></a>
+                    <a href="./cart.html"><img src="./imagens/carinho.png" alt="Carrinho"></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Carrinho de Compras</h1>
+        <section id="cart-items">
+            <!-- Itens do carrinho serão inseridos aqui -->
+        </section>
+        <div id="cart-summary">
+            <p>Total: <span id="cart-total">R$ 0,00</span></p>
+            <button id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h4>Sobre Nós</h4>
+            <p>Somos uma empresa comprometida em oferecer os melhores produtos com foco na satisfação do cliente.</p>
+        </div>
+    </footer>
+</body>
+</html>

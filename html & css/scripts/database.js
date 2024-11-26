@@ -173,3 +173,10 @@ window.cart = [
         image: "./imagens/product1.png"
     }  
 ];
+
+const products = [
+    { id: 1, name: "Camiseta Feminina", price: 49.90, image: "./imagens/product1.png" },
+    { id: 2, name: "Camiseta Masculina", price: 59.90, image: "./imagens/masculino.png" },
+    { id: 3, name: "Acessório Feminino", price: 29.90, image: "./imagens/acessorios.png" },
+];
+

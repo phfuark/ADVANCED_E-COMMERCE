@@ -96,98 +96,95 @@ export function loadProducts(productList, load) {
   
   }
   
-  function cartTotal(cartItens) {
-    return cartItens.reduce((total, item) => total + item.preco * item.quantity, 0);
+  // Calcula o total do carrinho
+export function cartTotal(cartItems) {
+  return cartItems.reduce((total, item) => total + item.preco * item.quantity, 0);
+}
+
+// Renderiza os itens no carrinho
+export function loadCartItems(cartItems, cartItemsHTML) {
+  cartItemsHTML.innerHTML = ""; // Limpa a lista antes de renderizar
+
+  if (cartItems.length === 0) {
+      cartItemsHTML.innerHTML = "<p>Seu carrinho está vazio</p>";
+      return;
   }
-  
-  
-  export function loadCartItem(cartItens,cartItensHTML){
-  
-    if(cartItens.length == [] || cartItens.length == [] ){
-      cartItensHTML.innerHTML = `Seu carrinho está vazio`
-    } else {
-      cartItens.forEach(item => {  
-        let html = `
-        <div class="cart_item" id="${item.codigoProduto}">
-                    <div class="cart_item_main_img">
-                        <img src="${item.imagemProduto.img1}" alt="">
-                    </div>
-                    <div class="cart_item_info">
-                        <p>${item.tituloProduto}</p>
-                        <p>
-                            R$ ${item.preco}
-                            <span>Un.</span>
-                        </p>
-    
-                        <h3>R$ ${(item.preco)*(item.quantity)}</h3>
-                       <div class="cart_item_qtd_selector">
-                        <div class="cart_item_qtd_selector_container">
-                            <i class="bi bi-dash"></i>
-                            <span>${item.quantity}</span>
-                            <i class="bi bi-plus"></i>
-                        </div>
-                        <button id="${item.codigoProduto}" class="remove">remover</button>
-                       </div>
-                    </div>
-                </div>
-    `
-    cartItensHTML.innerHTML += html
-    })
-    const total = cartTotal(cartItens);
-    localStorage.setItem('totalValue', total);
-    const price = document.querySelector('.total.container-flex:nth-child(1) h3:nth-child(2)');
-    price.innerHTML = `R$ ${total.toFixed(2)}`}
-  
-    }
-    
-  
-  
-    export function removeCartItem(sacolaCompras) {
-      let botaoDel = document.querySelectorAll("button.remove") /* remover produto do carrinho */
-      let cartItens = document.querySelector(".grid_col_1")
-      botaoDel.forEach(botao => botao.addEventListener('click', (event) => {
-        let item = event.target.parentElement.parentElement.parentElement
-        console.log(item)
-        cartItens.removeChild(item)
-        console.log(item.id)
-        let index = sacolaCompras.findIndex(i => i.codigoProduto == item.id)
-        console.log(index)
-        sacolaCompras.splice(index, 1)
-        console.log(sacolaCompras)
-        localStorage.setItem('listaCompras', JSON.stringify(sacolaCompras))
-    
-        // Update the price element here
-        const total = cartTotal(sacolaCompras);
-        localStorage.setItem('totalValue', total);
-        const price = document.querySelector('.total.container-flex:nth-child(1) h3:nth-child(2)');
-        price.innerHTML = `R$ ${total.toFixed(2)}`;
-       
-      }));
-    }
-  
-  
-  export function shop(pedidos){
-  
-  const form = document.querySelector('#billing form');
-  const inputs = form.querySelectorAll('input,select');
-  const inputValues = {};
-  inputs.forEach((input) => {
-    if (input.type!== 'submit' && input.type!== 'button') {
-      inputValues[input.name] = input.value;
-    }
+
+  cartItems.forEach(item => {
+      const html = `
+          <div class="cart_item" id="${item.codigoProduto}">
+              <div class="cart_item_main_img">
+                  <img src="${item.imagemProduto.img1}" alt="${item.tituloProduto}">
+              </div>
+              <div class="cart_item_info">
+                  <p>${item.tituloProduto}</p>
+                  <p>R$ ${item.preco} <span>Un.</span></p>
+                  <h3>R$ ${(item.preco * item.quantity).toFixed(2)}</h3>
+                  <div class="cart_item_qtd_selector">
+                      <button class="decrease" data-id="${item.codigoProduto}">-</button>
+                      <span>${item.quantity}</span>
+                      <button class="increase" data-id="${item.codigoProduto}">+</button>
+                      <button class="remove" data-id="${item.codigoProduto}">Remover</button>
+                  </div>
+              </div>
+          </div>
+      `;
+      cartItemsHTML.innerHTML += html;
   });
-  console.log(inputValues);
+
+  // Atualiza o valor total
+  updateCartTotal(cartItems);
+}
+
+// Atualiza o preço total no HTML
+export function updateCartTotal(cartItems) {
+  const total = cartTotal(cartItems);
+  localStorage.setItem("totalValue", total);
+  const totalElement = document.querySelector(".total.container-flex:nth-child(3) h3:nth-child(2)");
+  if (totalElement) {
+      totalElement.innerHTML = `R$ ${total.toFixed(2)}`;
+  }
+}
+
+// Gerencia ações de remoção e alteração de quantidade
+export function setupCartActions(cartItems, cartItemsHTML) {
+  cartItemsHTML.addEventListener("click", (event) => {
+      const button = event.target;
+      const itemId = button.dataset.id;
+      const itemIndex = cartItems.findIndex(item => item.codigoProduto === itemId);
+
+      if (button.classList.contains("remove")) {
+          // Remove o item
+          cartItems.splice(itemIndex, 1);
+      } else if (button.classList.contains("increase")) {
+          // Aumenta a quantidade
+          cartItems[itemIndex].quantity += 1;
+      } else if (button.classList.contains("decrease")) {
+          // Diminui a quantidade (mínimo de 1)
+          if (cartItems[itemIndex].quantity > 1) {
+              cartItems[itemIndex].quantity -= 1;
+          }
+      }
+
+      // Atualiza o localStorage e re-renderiza o carrinho
+      localStorage.setItem("listaCompras", JSON.stringify(cartItems));
+      loadCartItems(cartItems, cartItemsHTML);
+  });
+}
+
+// Finaliza a compra
+export function shop(pedidos) {
   const order = {
-     id: pedidos.length > 0? pedidos[pedidos.length - 1].id + 1 : 1,
-     address:{...inputValues},
-     items: JSON.parse(localStorage.getItem("listaCompras")),
-     totalValue: parseFloat(localStorage.getItem("totalValue"))
+      id: pedidos.length > 0 ? pedidos[pedidos.length - 1].id + 1 : 1,
+      items: JSON.parse(localStorage.getItem("listaCompras")),
+      totalValue: parseFloat(localStorage.getItem("totalValue")),
+      date: new Date().toISOString()
   };
-  
+
   pedidos.push(order);
-  localStorage.setItem("pedidos", JSON.stringify(pedidos));;
-  alert("pedido realizado com sucesso")
+  localStorage.setItem("pedidos", JSON.stringify(pedidos));
+  alert("Pedido realizado com sucesso!");
   localStorage.removeItem("listaCompras");
   localStorage.removeItem("totalValue");
-  window.location = "./index.html"
-  } 
+  window.location = "./index.html";
+}

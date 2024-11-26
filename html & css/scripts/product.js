@@ -33,9 +33,7 @@ if (product) {
                 
                 <div>
                     <div class="price">R$ ${product.preco.toFixed(2)} (NO PIX)</div>
-                    <a href="carrinho.html">
-                        <button class="view-product">Compre Agora!</button>
-                    </a>
+                    <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
                 </div>
         </div>
     `;
